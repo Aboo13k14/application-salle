@@ -1,0 +1,15 @@
+SALLE — application hors ligne (PWA)
+
+Mettre l'app en ligne une seule fois (gratuit), par exemple avec GitHub Pages :
+1. Crée un dépôt public sur github.com (ex. "salle").
+2. Envoie TOUT le contenu de ce dossier à la racine du dépôt (index.html, sw.js, manifest.webmanifest, icons/, img/).
+3. Settings > Pages > Source : "Deploy from a branch", branche main, dossier / (root) > Save.
+4. Ton adresse : https://<ton-pseudo>.github.io/salle/
+
+Installer sur iPhone : ouvre l'adresse dans Safari > bouton Partager > "Sur l'écran d'accueil".
+Installer sur Android : ouvre dans Chrome > menu ⋮ > "Installer l'application".
+
+Ouvre l'app une première fois avec du réseau : ensuite elle marche sans connexion.
+Tes données restent sur ton téléphone : pense à "Télécharger une sauvegarde" dans Réglages au moins une fois par mois.
+Mise à jour de l'app : remplace les fichiers du dépôt ; l'app se met à jour à la prochaine ouverture avec du réseau.
+Illustrations : Everkinetic (Greg Priday), licence CC BY-SA 4.0.
