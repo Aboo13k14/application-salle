@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0e1013">
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -967,7 +967,7 @@ function updCmp(id){const card=$(`.ex[data-id="${id}"]`);if(!card)return;const e
   el.innerHTML=out.join(" · ");}
 
 /* ---------- Vue Programme ---------- */
-function thumb(id,big){return id in ILL?`<img class="th" src="img/${id}-2.webp" alt="" loading="lazy">`:`<svg class="th ill" viewBox="0 -35 240 212">${illustration(id,1,{ghost:false,arrow:false})}</svg>`;}
+function thumb(id,big){return id in ILL?`<img class="th" src="${id}-2.webp" alt="" loading="lazy">`:`<svg class="th ill" viewBox="0 -35 240 212">${illustration(id,1,{ghost:false,arrow:false})}</svg>`;}
 function vProgramme(){const k=S.progTab,G=curProg(),isMax=S.config.volume==="max";
   let h=`<p class="mode ${isMax?"max":""}">${isMax?"Volume maximal activé · ≈1 h 30 par séance":"Volume standard · ≈1 h 15 par séance"} · <button class="lnk in" data-nav="reglages">changer</button></p><div class="seg big">${Object.keys(PROG).map(j=>`<button data-ptab="${j}" class="${k===j?"on":""}">${PROG[j].label}</button>`).join("")}<button data-ptab="muscle" class="${k==="muscle"?"on":""}">Par muscle</button></div>`;
   const card=(id,n)=>{const e=EX[id],added=isMax&&k!=="muscle"&&!PROG[k].items.includes(id)&&!PROG[k].abs.includes(id);
@@ -1013,7 +1013,7 @@ function moveTabs(id){const e=EX[id],t=[];if(id in ILL)t.push(["ill","Dessin ani
   t.push(["v1",e.pose.back?"Schéma de dos":e.pose.mode==="front"?"Schéma de face":"Schéma de profil"]);if(e.pose2)t.push(["v2",e.pose2.back?"Schéma de dos":"Schéma de face"]);
   return `<div class="seg mvt" data-mvid="${id}">${t.map(([k,l])=>`<button data-mv="${k}">${l}</button>`).join("")}</div>`;}
 function showMove(id,v){stopAnim2();const box=$("#mv");if(!box)return;$$("[data-mv]").forEach(b=>b.classList.toggle("on",b.dataset.mv===v));
-  if(v==="ill")box.innerHTML=`<div class="flip"><img src="img/${id}-1.webp" alt="" class="f1"><img src="img/${id}-2.webp" alt="" class="f2"></div><p class="hint">Le dessin alterne entre les deux positions du mouvement.${ILL[id]?" "+ILL[id]:""}</p><p class="credit">${CREDIT}</p>`;
+  if(v==="ill")box.innerHTML=`<div class="flip"><img src="${id}-1.webp" alt="" class="f1"><img src="${id}-2.webp" alt="" class="f2"></div><p class="hint">Le dessin alterne entre les deux positions du mouvement.${ILL[id]?" "+ILL[id]:""}</p><p class="credit">${CREDIT}</p>`;
   else{box.innerHTML=`<figure class="anim2"><svg viewBox="0 -35 240 212" id="figsvg" class="ill" role="img" aria-label="Schéma du mouvement"></svg><figcaption>Muscles ciblés en rouge (principal) et orange (secondaire), trajet de la charge en bleu, position de départ en pointillés.</figcaption></figure>`;
     startAnim2($("#figsvg"),id,v==="v2"?2:1);}}
 function closeModal(){stopAnim2();const m=$("#modal");m.classList.remove("open");m.setAttribute("aria-hidden","true");document.body.classList.remove("lock");stopAnim();
